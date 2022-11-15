@@ -20,6 +20,7 @@ struct Node {
 class LinkedList {
   private : 
     Node* head;
+    int lenght{};
   public :
     LinkedList(){
       head = NULL;
@@ -33,7 +34,7 @@ class LinkedList {
     }
     void Print();
     void Insert(int n, int data);
-    void Append(int data);
+    void Push(int data);
     void Delete(int n);
     void Reverse();
 };

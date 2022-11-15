@@ -36,6 +36,11 @@ void Insert(Node** head, int n ,int data){
 
 void Delete(Node** head, int n) {
   Node* temp1 = *head;
+  if (n == 1 ) {
+    *head = temp1->next;
+    delete temp1;
+    return;
+  }
   for (int i{}; i<n-2;i++) { // iterating n-1 times
     temp1 = temp1->next;
   }
@@ -45,8 +50,35 @@ void Delete(Node** head, int n) {
 }
 
 void Reverse(Node** head) {
-  
+  Node* prev = NULL;
+  Node* current = *head;
+  while (current != NULL)
+  {
+    Node* next = current->next;
+    current->next = prev;
+    prev = current;
+    current = next;
+  }
+  *head = prev; 
 }
+
+void _RecursiveReverse(Node* headNode, Node** head) {
+  if (headNode->next == NULL) {
+    *head = headNode;
+    return;
+  }
+  _RecursiveReverse(headNode->next, head);
+  Node* next = headNode->next;
+  next->next = headNode;
+  headNode->next = NULL;
+}
+
+void RecursiveReverse(Node** head) {
+  Node* headNode = *head;
+  _RecursiveReverse(headNode, head);
+}
+
+
 
 int main() {
   int n, num, position;
@@ -56,13 +88,15 @@ int main() {
   for (int i{};i <n;i++) {
     cout<<"Insert number : ";
     cin>>num;
-    cout<<"At position : ";
-    cin>>position;
-    Insert(&head, position , num);
+    Insert(&head, i+1 , num);
     Print(head);
   }
   cout<<"Do you want to delete a element? : ";
   cin>>position;
   Delete(&head, position);
+  Print(head);
+  Reverse(&head);
+  Print(head);
+  RecursiveReverse(&head);
   Print(head);
 }

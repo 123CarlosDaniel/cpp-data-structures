@@ -15,8 +15,13 @@ int main() {
     list->Insert(i,data);
     list->Print();
   }
-  cout<<"Enter the index of the number to delte : ";
-  cin>>ind;
-  list->Delete(ind);
+  // cout<<"Enter the index of the number to delte : ";
+  // cin>>ind;
+  // list->Delete(ind);
+  list->Reverse(); 
+  list->Print();
+  cout<<"Append number : ";
+  cin>>data;
+  list->Push(data);
   list->Print();
 }
