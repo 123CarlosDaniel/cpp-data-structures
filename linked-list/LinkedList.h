@@ -29,7 +29,13 @@ class LinkedList {
       head = new Node(data); 
     }
     ~LinkedList(){
-      delete head;
+      Node* tempHead = this->head; 
+      while (tempHead != NULL)
+      {
+        Node* next = tempHead->next;
+        delete tempHead;
+        tempHead = next;   
+      }
       cout<<"Deleting linkedlist"<<endl;
     }
     void Print();

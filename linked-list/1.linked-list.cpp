@@ -5,6 +5,7 @@ struct Node {
   int data;
   Node* next;
 };
+
 void insert(Node** head, int val){
   Node* temp = new Node();
   temp->data = val;

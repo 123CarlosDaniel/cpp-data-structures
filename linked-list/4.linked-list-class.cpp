@@ -24,4 +24,8 @@ int main() {
   cin>>data;
   list->Push(data);
   list->Print();
+  delete list;
+  if (list == nullptr) {
+    cout<<"lista no existe"<<endl;
+  }
 }

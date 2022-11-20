@@ -4,42 +4,81 @@
 #include <iostream>
 using namespace std;
 
+template <typename T>
 struct Node {
-  int data;
-  Node* next;
-  Node(int data) {
+  T data;
+  Node<T>* next;
+  Node(T data) {
     this->data = data;
     this->next = NULL;
   }
-  ~Node(){
-    cout<<"Deleting node at "<<this<<endl;
-  }
+  // ~Node(){
+  //   cout<<"Deleting node at "<<this<<endl;
+  // }
 };
 
+template <typename T>
 class Stack {
   private:
-    Node* head;
+    Node<T>* head;
     int lenght{};
   public :
     Stack() {
       head = NULL;
     }
-    Stack(int data) {
-      head = new Node(data);
+    Stack(T data) {
+      head = new Node<T>(data);
       lenght++;
     }
     ~Stack() {
-      Node* tempHead = head;
+      Node<T>* tempHead = head;
       while (tempHead!= NULL){
-        Node* next = tempHead->next;
+        Node<T>* next = tempHead->next;
         delete tempHead;
         tempHead = next;
       }
-      cout<<"Deleting Stack head"<<endl;
+      // cout<<"Deleting Stack head"<<endl;
     }
-    void Push( int data);
+    void Push( T data);
     void Pop();
+    T Top();
     void Print();
 };
+
+template <typename T>
+void Stack<T>::Print(){
+  Node<T>* head = this->head;
+  if (head == NULL) {
+    cout<<"Stack is empty"<<endl;
+    cout<<"Stack lenght : "<< this->lenght<<endl;
+    return;
+  }
+  cout<<"Data : ";
+  while (head != NULL){
+    cout<<head->data<<" ";
+    head = head->next; 
+  }
+  cout<<endl;
+}
+
+template <typename T>
+void Stack<T>::Push(T data) {
+  Node<T>* temp = new Node(data);
+  temp->next = this->head;
+  this->head = temp;
+  ++(this->lenght);
+}
+
+template <typename T>
+void Stack<T>::Pop() {
+  Node<T>* deleted = this->head;
+  this->head = deleted->next;
+  delete deleted;
+}
+
+template <typename T>
+T Stack<T>::Top() {
+  return this->head->data;
+}
 
 #endif

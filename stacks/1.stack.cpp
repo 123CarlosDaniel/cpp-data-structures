@@ -1,7 +1,7 @@
 #include <iostream>
 
 using namespace std;
-
+// stack implementation with arrays
 int A[101];
 int top = -1;
 
