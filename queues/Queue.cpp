@@ -43,3 +43,7 @@ void Queue::Dequeue() {
   }
   delete front;
 }
+
+int Queue::Front() {
+  return this->front->data;
+}

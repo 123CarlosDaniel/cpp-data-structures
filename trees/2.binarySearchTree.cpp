@@ -46,6 +46,18 @@ bool Search(Node* root, int data) {
   } else return Search(root->right, data); 
 }
 
+bool Search2(Node* root, int data) {
+  while (root != NULL) {
+    if (data = root->data) return true;
+    if (data <= root->data) {
+      root = root->left;
+    } else {
+      root = root->right;
+    } 
+  }
+  return false;
+}
+
 int FindMin(Node* root ) {
   if (root == NULL) {
     cout<<"Error: Tree is empty"<<endl;
@@ -55,6 +67,17 @@ int FindMin(Node* root ) {
     return root->data;
   }
   return FindMin(root->left);
+}
+
+int FindMin2(Node* root) {
+  while (root != NULL) {
+    if (root->left == NULL) {
+      return root->data;
+    }
+    root = root->left;
+  }
+  cout<<"Error : Tree is empty"<<endl;
+  return -1;
 }
 
 int FindHeight(Node* root) {
@@ -72,6 +95,8 @@ int main() {
   Insert(&root, 1);
   cout<<Search(root,4)<<endl;
   cout<<Search(root,5)<<endl;
+  cout<<"Search 6 "<<Search2(root, 6)<<endl;
   cout<<"Min : "<<FindMin(root)<<endl;
+  cout<<"Min2 : "<<FindMin2(root)<<endl;
   cout<<"Height : "<<FindHeight(root)<<endl;
 }

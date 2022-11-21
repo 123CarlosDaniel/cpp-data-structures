@@ -1,13 +1,13 @@
 
 #include <iostream>
-#include "BynaryTree.h"
+#include "BinaryTree.h"
 
 using namespace std;
 
 
 
 int main() {
-  BynarySearchTree* root = new BynarySearchTree();
+  BinarySearchTree* root = new BinarySearchTree();
   root->Insert(4);
   root->Insert(45);
   root->Insert(14);

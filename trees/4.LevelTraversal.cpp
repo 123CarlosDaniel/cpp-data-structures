@@ -1,5 +1,5 @@
 #include <iostream>
-#include "BynaryTree.h"
+#include "BinaryTree.h"
 #include "Queue.h"
 
 using namespace std;
@@ -20,7 +20,7 @@ void LevelOrder(NodeTree* root) {
 }
 
 int main() {
-  BynarySearchTree* root = new BynarySearchTree();
+  BinarySearchTree* root = new BinarySearchTree();
   root->Insert(4);
   root->Insert(11);
   root->Insert(10);

@@ -1,5 +1,5 @@
-#ifndef BYNARY_TREE_H
-#define BYNATY_TREE_H
+#ifndef BINARY_TREE_H
+#define BINATY_TREE_H
 #include <iostream>
 
 struct NodeTree
@@ -13,14 +13,14 @@ struct NodeTree
   }
 };
 
-class BynarySearchTree {
+class BinarySearchTree {
   private :
     NodeTree* root;
   public :
-    BynarySearchTree() {
+    BinarySearchTree() {
       root = NULL;
     }
-    BynarySearchTree(int data) {
+    BinarySearchTree(int data) {
       root = new NodeTree(data);
     }
     void Insert(int data);

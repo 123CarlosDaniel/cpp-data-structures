@@ -78,6 +78,15 @@ void RecursiveReverse(Node** head) {
   _RecursiveReverse(headNode, head);
 }
 
+void RecursiveReverse2(Node** headPointer, Node* head, Node* prev = NULL) {
+  if (head == NULL) {
+    *headPointer = prev;
+    return;
+  }
+  Node* next = head->next;
+  head->next = prev; 
+  RecursiveReverse2(headPointer, next, head);
+}
 
 
 int main() {
@@ -91,12 +100,14 @@ int main() {
     Insert(&head, i+1 , num);
     Print(head);
   }
-  cout<<"Do you want to delete a element? : ";
-  cin>>position;
-  Delete(&head, position);
+  // cout<<"Do you want to delete a element? : ";
+  // cin>>position;
+  // Delete(&head, position);
   Print(head);
-  Reverse(&head);
-  Print(head);
-  RecursiveReverse(&head);
+  // Reverse(&head);
+  // Print(head);
+  // RecursiveReverse(&head);
+  // Print(head);
+  RecursiveReverse2(&head,head);
   Print(head);
 }

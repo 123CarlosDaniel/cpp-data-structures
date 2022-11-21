@@ -1,8 +1,8 @@
 #include <iostream>
-#include "BynaryTree.h"
+#include "BinaryTree.h"
 using namespace std;
 
-void BynarySearchTree::Insert(int data) {
+void BinarySearchTree::Insert(int data) {
   NodeTree* temp1 = this->root;
   NodeTree* newNode = new NodeTree(data);
   if (temp1 == NULL ) {
@@ -16,7 +16,6 @@ void BynarySearchTree::Insert(int data) {
         break;
       } 
       temp1 = temp1->left;
-      continue;
     }
     else {
       if ( temp1->right == NULL) {
@@ -24,12 +23,11 @@ void BynarySearchTree::Insert(int data) {
         break;
       }
       temp1 = temp1->right;
-      continue;
     }
   }
 }
 
-bool BynarySearchTree::Search(int data) {
+bool BinarySearchTree::Search(int data) {
   NodeTree* root = this->root;
   while ( true ) {
     if ( root == NULL) {
@@ -39,11 +37,9 @@ bool BynarySearchTree::Search(int data) {
     if ( root->data = data) return true;
     if ( data <= root->data) {
       root = root->left;
-      continue;
     }
     else {
       root = root->right;
-      continue;
     }
   }
 }
